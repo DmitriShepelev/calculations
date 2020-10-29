@@ -11,9 +11,15 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumOne(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            for (double i = 1; i <= n; i++)
+            {
+                sum += 1 / i;
+            }
+
+            return sum;
         }
-        
+
         /// <summary>
         /// Calculate the following sum
         /// 1/(1*2) - 1/(2*3) + 1/(3*4) + ... + (-1)^(n+1) / (n * (n + 1)), where n > 0.
@@ -22,9 +28,17 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumTwo(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            double j = 1;
+            for (long i = 1; i <= n; i++)
+            {
+                sum += j / (i * (i + 1));
+                j *= -1;
+            }
+
+            return sum;
         }
-        
+
         /// <summary>
         /// Calculate the following sum
         /// 1/1^5 + 1/2^5 + 1/3^5 + ... + 1/n^5, where n > 0.
@@ -33,9 +47,15 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumThree(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            for (long i = 1; i <= n; i++)
+            {
+                sum += 1 / Math.Pow(i, 5);
+            }
+
+            return sum;
         }
-        
+
         /// <summary>
         /// Calculate the following sum
         /// 1/(3 * 3) + 1/(5 * 5) + 1/(7 * 7) + ... + 1/((2 * n + 1) * (2 * n + 1)), where n > 0.
@@ -44,7 +64,13 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumFour(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            for (long i = 1; i <= n; i++)
+            {
+                sum += 1.0 / (((2 * i) + 1) * ((2 * i) + 1));
+            }
+
+            return sum;
         }
 
         /// <summary>
@@ -55,9 +81,15 @@ namespace Calculations
         /// <returns>Product of elements.</returns>
         public static double GetProductOne(int n)
         {
-            throw new NotImplementedException();
+            double sum = 1;
+            for (long i = 1; i <= n; i++)
+            {
+                sum *= 1 + (1.0 / (i * i));
+            }
+
+            return sum;
         }
-        
+
         /// <summary>
         /// Calculate the following sum
         /// -1/3 + 1/5 - 1/7 + ... + (-1)^n / (2 * n + 1), where n > 0.
@@ -66,7 +98,15 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumFive(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            double j = -1;
+            for (long i = 1; i <= n; i++)
+            {
+                sum += j / ((2 * i) + 1);
+                j *= -1;
+            }
+            
+            return sum;            
         }
 
         /// <summary>
@@ -77,7 +117,21 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumSix(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            for (double i = 1; i <= n; i++)
+            {
+                double factorial = 1;
+                double divider = 0;
+                for (double j = 1; j <= i; j++)
+                {
+                    factorial *= j;
+                    divider += 1d / j;
+                }
+
+                sum += factorial / divider;
+            }
+
+            return sum;
         }
 
         /// <summary>
@@ -88,9 +142,15 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumSeven(int n)
         {
-            throw new NotImplementedException();
+            double sum = 2 + Math.Sqrt(2);
+            for (var i = 2; i < n; i++)
+            {
+                sum = 2 + Math.Sqrt(sum);
+            }
+
+            return Math.Sqrt(sum);
         }
-        
+
         /// <summary>
         /// Calculate the following sum
         /// 1/sin(1) + 1/(sin(1)+sin(2)) + ...+  1/(sin(1)+sin(2)+...+sin(n)), where n > 0.
