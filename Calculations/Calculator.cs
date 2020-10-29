@@ -105,8 +105,8 @@ namespace Calculations
                 sum += j / ((2 * i) + 1);
                 j *= -1;
             }
-            
-            return sum;            
+
+            return sum;
         }
 
         /// <summary>
@@ -125,10 +125,14 @@ namespace Calculations
                 for (double j = 1; j <= i; j++)
                 {
                     factorial *= j;
-                    divider += 1d / j;
+                    divider += 1.0 / j;
                 }
 
                 sum += factorial / divider;
+                if (double.IsInfinity(sum))
+                {
+                    return sum;
+                }
             }
 
             return sum;
@@ -159,7 +163,20 @@ namespace Calculations
         /// <returns>Sum of elements.</returns>
         public static double GetSumEight(int n)
         {
-            throw new NotImplementedException();
+            double sum = 0;
+
+            for (var i = 1; i <= n; i++)
+            {
+                double sin = 0;
+                for (var j = 1; j <= i; j++)
+                {
+                    sin += Math.Sin(j * Math.PI / 180);
+                }
+
+                sum += 1 / sin;
+            }
+
+            return sum;
         }
     }
 }
